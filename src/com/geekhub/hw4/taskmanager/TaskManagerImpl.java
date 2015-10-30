@@ -1,13 +1,14 @@
 package com.geekhub.hw4.taskmanager;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class TaskManagerImpl implements TaskManager {
 
     private Map<Date, Task> taskMap;
 
-    public TaskManagerImpl(Map<Date, Task> taskMap) {
-        this.taskMap = taskMap;
+    public TaskManagerImpl() {
+        taskMap = new HashMap<>();
     }
 
     @Override
@@ -31,17 +32,11 @@ public class TaskManagerImpl implements TaskManager {
 
     @Override
     public Map<String, List<Task>> getTasksByCategories() {
-        List<Task> taskList;
         Map<String, List<Task>> categoriesMap = new HashMap<>();
         for (Task task : taskMap.values()) {
             String category = task.getCategory();
-            if (!categoriesMap.keySet().contains(category)) {
-                taskList = new ArrayList<>();
-                taskList.add(task);
-                categoriesMap.put(category, taskList);
-            } else {
-                taskList = categoriesMap.get(category);
-                taskList.add(task);
+            if (!categoriesMap.containsKey(category)) {
+                categoriesMap.put(category, getTasksByCategory(category));
             }
         }
         return null;
@@ -49,11 +44,31 @@ public class TaskManagerImpl implements TaskManager {
 
     @Override
     public List<Task> getTasksByCategory(String category) {
-        return null;
+        List<Task> taskList = new ArrayList<>();
+        for (Task task : sortTaskByDate().values()) {
+            if (category.equals(task.getCategory())) {
+                taskList.add(task);
+            }
+        }
+        return taskList;
     }
 
     @Override
     public List<Task> getTasksForToday() {
-        return null;
+        List<Task> taskList = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+        String todayDate = sdf.format(Calendar.getInstance().getTime());
+
+        for (Map.Entry<Date, Task> entry : sortTaskByDate().entrySet()) {
+            if (todayDate.equals(sdf.format(entry.getKey()))) {
+                taskList.add(entry.getValue());
+            }
+        }
+
+        return taskList;
+    }
+
+    private Map<Date, Task> sortTaskByDate() {
+        return new TreeMap<>(taskMap);
     }
 }
