@@ -5,6 +5,11 @@ public class Task implements Comparable<Task> {
     private String category;
     private String description;
 
+    public Task(String category, String description) {
+        this.category = category;
+        this.description = description;
+    }
+
     public String getCategory() {
         return category;
     }
