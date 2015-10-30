@@ -31,6 +31,19 @@ public class TaskManagerImpl implements TaskManager {
 
     @Override
     public Map<String, List<Task>> getTasksByCategories() {
+        List<Task> taskList;
+        Map<String, List<Task>> categoriesMap = new HashMap<>();
+        for (Task task : taskMap.values()) {
+            String category = task.getCategory();
+            if (!categoriesMap.keySet().contains(category)) {
+                taskList = new ArrayList<>();
+                taskList.add(task);
+                categoriesMap.put(category, taskList);
+            } else {
+                taskList = categoriesMap.get(category);
+                taskList.add(task);
+            }
+        }
         return null;
     }
 
