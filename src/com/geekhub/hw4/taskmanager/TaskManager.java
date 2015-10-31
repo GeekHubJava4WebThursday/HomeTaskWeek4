@@ -19,11 +19,25 @@ public interface TaskManager {
      */
     void removeTask(Date date);
 
+
+    /**
+     *
+     * @return all tasks sorted by scheduled date
+     */
+    Map<Date, Task> getAllTasks();
+
     /**
      *
      * @return all categories
      */
     Collection<String> getCategories();
+
+    /**
+     *
+     * @param date date of interest
+     * @return task on the specified date
+     */
+    Task getTask(Date date);
 
     /**
      *

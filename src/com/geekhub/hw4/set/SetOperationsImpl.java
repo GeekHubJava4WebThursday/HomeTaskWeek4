@@ -7,7 +7,7 @@ public class SetOperationsImpl implements SetOperations {
 
     @Override
     public <T> boolean equals(Set<T> a, Set<T> b) {
-        return a.containsAll(b);
+        return a.equals(b);
     }
 
     @Override
@@ -19,14 +19,16 @@ public class SetOperationsImpl implements SetOperations {
 
     @Override
     public <T> Set<T> subtract(Set<T> a, Set<T> b) {
-        a.removeAll(b);
-        return new HashSet<>(a);
+        Set<T> c = new HashSet<>(a);
+        c.removeAll(b);
+        return c;
     }
 
     @Override
     public <T> Set<T> intersect(Set<T> a, Set<T> b) {
-        a.retainAll(b);
-        return a;
+        Set<T> c = new HashSet<>(a);
+        c.retainAll(b);
+        return c;
     }
 
     @Override

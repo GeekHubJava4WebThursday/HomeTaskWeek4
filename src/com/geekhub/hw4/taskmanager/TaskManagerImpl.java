@@ -22,8 +22,18 @@ public class TaskManagerImpl implements TaskManager {
     }
 
     @Override
+    public Map<Date, Task> getAllTasks() {
+        return sortTasksByDate();
+    }
+
+    @Override
+    public Task getTask(Date date) {
+        return taskMap.get(date);
+    }
+
+    @Override
     public Collection<String> getCategories() {
-        List<String> categoriesList = new ArrayList<>();
+        Set<String> categoriesList = new HashSet<>();
         for (Task task : taskMap.values()) {
             categoriesList.add(task.getCategory());
         }
@@ -35,17 +45,15 @@ public class TaskManagerImpl implements TaskManager {
         Map<String, List<Task>> categoriesMap = new HashMap<>();
         for (Task task : taskMap.values()) {
             String category = task.getCategory();
-            if (!categoriesMap.containsKey(category)) {
-                categoriesMap.put(category, getTasksByCategory(category));
-            }
+            categoriesMap.put(category, getTasksByCategory(category));
         }
-        return null;
+        return categoriesMap;
     }
 
     @Override
     public List<Task> getTasksByCategory(String category) {
         List<Task> taskList = new ArrayList<>();
-        for (Task task : sortTaskByDate().values()) {
+        for (Task task : sortTasksByDate().values()) {
             if (category.equals(task.getCategory())) {
                 taskList.add(task);
             }
@@ -59,7 +67,7 @@ public class TaskManagerImpl implements TaskManager {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
         String todayDate = sdf.format(Calendar.getInstance().getTime());
 
-        for (Map.Entry<Date, Task> entry : sortTaskByDate().entrySet()) {
+        for (Map.Entry<Date, Task> entry : sortTasksByDate().entrySet()) {
             if (todayDate.equals(sdf.format(entry.getKey()))) {
                 taskList.add(entry.getValue());
             }
@@ -68,7 +76,7 @@ public class TaskManagerImpl implements TaskManager {
         return taskList;
     }
 
-    private Map<Date, Task> sortTaskByDate() {
+    private Map<Date, Task> sortTasksByDate() {
         return new TreeMap<>(taskMap);
     }
 }

@@ -30,4 +30,27 @@ public class Task implements Comparable<Task> {
     public int compareTo(Task o) {
         return category.compareTo(o.getCategory());
     }
+
+    @Override
+    public String toString() {
+        return category + ": " + description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Task task = (Task) o;
+
+        return category.equals(task.category) && description.equals(task.description);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = category.hashCode();
+        result = 31 * result + description.hashCode();
+        return result;
+    }
 }
