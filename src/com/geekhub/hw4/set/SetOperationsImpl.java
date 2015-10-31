@@ -5,11 +5,8 @@ import com.geekhub.hw4.taskmanager.TaskManagerImpl;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by sergei on 10/30/15.
- */
-public class SetOperationsImpl implements SetOperations {
 
+public class SetOperationsImpl implements SetOperations {
 
     @Override
     public boolean equals(Set a, Set b) {
