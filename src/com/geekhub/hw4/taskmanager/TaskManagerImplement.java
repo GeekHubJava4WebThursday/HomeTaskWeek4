@@ -3,9 +3,10 @@ package com.geekhub.hw4.taskmanager;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
- * Created by featon on 02.11.15.
+ *  Implement some methods from TaskManager interface
  */
 public class TaskManagerImplement implements TaskManager {
 
@@ -30,11 +31,12 @@ public class TaskManagerImplement implements TaskManager {
     }
 
     @Override
-    public List<Task> getTasksForToday() {
+    public Map<String, List<Task>> getTasksByCategories() {
         return null;
     }
 
-    public static void main(String[] args){
-
+    @Override
+    public List<Task> getTasksForToday() {
+        return null;
     }
 }
