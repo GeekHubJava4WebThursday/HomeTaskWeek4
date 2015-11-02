@@ -44,11 +44,11 @@ public class Main {
 
     public static void startTaskManager() {
         TaskManager taskManager = new TaskManagerImplement();
-        taskManager.addTask(new Date(), new Task("Work", "write code"));
-        taskManager.addTask(new Date(357575), new Task("Rest", "read book"));
-        taskManager.addTask(new Date(5455), new Task("Shop", "buy milk and bread"));
-        taskManager.addTask(new Date(435), new Task("Work", "refactoring code"));
-        taskManager.addTask(new Date(345345), new Task("Rest", "play football"));
+        taskManager.addTask(new Date(38477), new Task("Work", "write code"));
+        taskManager.addTask(new Date(2828676), new Task("Rest", "read book"));
+        taskManager.addTask(new Date(999888), new Task("Shop", "buy milk and bread"));
+        taskManager.addTask(new Date(), new Task("Work", "refactoring code"));
+        taskManager.addTask(new Date(11111111), new Task("Rest", "play football"));
 
         System.out.println("\n..................................................");
         System.out.println("All categories in Map: " + taskManager.getCategories());
