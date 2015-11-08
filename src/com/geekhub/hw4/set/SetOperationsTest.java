@@ -48,49 +48,25 @@ public class SetOperationsTest {
 
     public static void testUnion() {
         /* union */
-        try {
-            resultSet = setOperationsUtility.union(setA, setB);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        }
+        resultSet = setOperationsUtility.union(setA, setB);
         System.out.println("\nunion(A,B): " + resultSet.toString());
     }
 
     public static void testSubtract() {
         /* subtract */
-        try {
-            resultSet = setOperationsUtility.subtract(setA, setB);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        }
+        resultSet = setOperationsUtility.subtract(setA, setB);
         System.out.println("\nsubtract(A,B): " + resultSet.toString());
     }
 
     public static void testIntersect() {
         /* intersect */
-        try {
-            resultSet = setOperationsUtility.intersect(setA, setB);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        }
+        resultSet = setOperationsUtility.intersect(setA, setB);
         System.out.println("\nintersect(A,B): " + resultSet.toString());
     }
 
     public static void testSymmetricSubtract() {
         /* symmetricSubtract */
-        try {
-            resultSet = setOperationsUtility.symmetricSubtract(setA, setB);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        }
+        resultSet = setOperationsUtility.symmetricSubtract(setA, setB);
         System.out.println("\nsymmetric subtract(A,B): " + resultSet.toString());
     }
 }
