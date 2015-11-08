@@ -13,10 +13,6 @@ public class Task {
         return category;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     @Override
     public String toString() {
         return "Task{" +
