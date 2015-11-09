@@ -14,7 +14,7 @@ public class SetHandler<E> implements SetOperations<E> {
     public Set<E> union(Set<E> a, Set<E> b) {
         Set<E> result = new HashSet<>(a);
         result.addAll(b);
-        return  result;
+        return result;
 
     }
 
@@ -22,14 +22,14 @@ public class SetHandler<E> implements SetOperations<E> {
     public Set<E> subtract(Set<E> a, Set<E> b) {
         Set<E> result = new HashSet<>(a);
         result.removeAll(b);
-        return  result;
+        return result;
     }
 
     @Override
     public Set<E> intersect(Set<E> a, Set<E> b) {
         Set<E> result = new HashSet<>(a);
         result.retainAll(b);
-        return  result;
+        return result;
     }
 
     @Override
@@ -42,6 +42,6 @@ public class SetHandler<E> implements SetOperations<E> {
 
         result.addAll(c);
 
-        return  result;
+        return result;
     }
 }
