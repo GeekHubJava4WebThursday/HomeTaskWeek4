@@ -1,7 +1,9 @@
-package com.geekhub.hw4.set;
+package com.company;
 
 import java.util.Set;
-
+/**
+ * Created by InnaBakum on 09.11.2015.
+ */
 public interface SetOperations {
     //Два множества А и В равны (А=В), если они состоят из одних и тех же элементов
     boolean equals(Set a, Set b);
