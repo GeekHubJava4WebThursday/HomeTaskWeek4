@@ -1,10 +1,12 @@
-package com.geekhub.hw4.taskmanager;
-
+package com.company;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Created by InnaBakum on 09.11.2015.
+ */
 public interface TaskManager {
     /**
      *
