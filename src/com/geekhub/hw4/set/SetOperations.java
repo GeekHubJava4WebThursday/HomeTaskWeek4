@@ -2,9 +2,11 @@ package com.geekhub.hw4.set;
 
 import java.util.Set;
 
+
 public interface SetOperations {
     //Два множества А и В равны (А=В), если они состоят из одних и тех же элементов
     boolean equals(Set a, Set b);
+
 
     //Объединением (суммой) множеств А и В называется множество А ? В,
     //элементы которого принадлежат хотя бы одному из этих множеств
